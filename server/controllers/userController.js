@@ -2,10 +2,20 @@
  Handle the user registration, login and user profile
 */
 
+
 const asynHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const token = require("jsonwebtoken");
 const User = require("../model/userModel");
+
+// @desc get all users
+// @route GET /api/users
+// @access Public
+const getUsers = asynHandler(async (req, res) => {
+  const users = await User.find({});
+  res.json(users);
+});
+
 
 // @desc Register a user
 // @route POST /api/users/register
@@ -78,4 +88,4 @@ const userProfile = asynHandler(async (req, res) => {
   res.json(req.user);
 });
 
-module.exports = { registerUser, loginUser, userProfile };
+module.exports = { registerUser, loginUser, userProfile, getUsers };
