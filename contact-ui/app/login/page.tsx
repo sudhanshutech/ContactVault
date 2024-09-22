@@ -56,7 +56,7 @@ const LoginPage: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <Spacer y={1.5} />
-        <Button auto color="primary" onClick={handleLogin}>
+        <Button color="primary" onClick={handleLogin}>
           Login
         </Button>
       </Card>
