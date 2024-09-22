@@ -41,10 +41,7 @@ export default function DocsPage() {
         <h2>Adding a Contact</h2>
         <div className="mt-4">
           <Input
-            clearable
-            underlined
             fullWidth
-            labelPlaceholder="Name"
             label="Name"
             type="text"
             value={name}
@@ -52,10 +49,7 @@ export default function DocsPage() {
           />
           <Spacer y={1} />
           <Input
-            clearable
-            underlined
             fullWidth
-            labelPlaceholder="Email"
             label="Email"
             type="email"
             value={email}
@@ -63,10 +57,7 @@ export default function DocsPage() {
           />
           <Spacer y={1} />
           <Input
-            clearable
-            underlined
             fullWidth
-            labelPlaceholder="Phone"
             label="Phone"
             type="tel"
             value={phone}

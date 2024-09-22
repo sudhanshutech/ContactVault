@@ -36,18 +36,12 @@ const RegisterPage = () => {
       <Card style={{ maxWidth: "400px", padding: "20px" }}>
         <h1 style={{textAlign: 'center'}}>Register</h1>
         <Input
-          clearable
-          underlined
-          labelPlaceholder="Name"
           label="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <Spacer y={1} />
         <Input
-          clearable
-          underlined
-          labelPlaceholder="Email"
           label="Email"
           type="email"
           value={email}
@@ -55,9 +49,6 @@ const RegisterPage = () => {
         />
         <Spacer y={1} />
         <Input
-          clearable
-          underlined
-          labelPlaceholder="Password"
           label="Password"
           type="password"
           value={password}

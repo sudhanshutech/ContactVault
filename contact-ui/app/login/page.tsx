@@ -19,6 +19,7 @@ const LoginPage: React.FC = () => {
         }
       );
       const token = response.data.accesToken;
+
       localStorage.setItem("token", token);
       console.log("Login successful:", response.data);
       // Handle successful login (e.g., redirect, store token, etc.)
@@ -40,26 +41,22 @@ const LoginPage: React.FC = () => {
         <h3 style={{ textAlign: "center" }}>Login</h3>
         <Spacer y={1} />
         <Input
-          clearable
-          underlined
           fullWidth
-          labelPlaceholder="Email"
+          label="Email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Spacer y={1.5} />
         <Input
-          clearable
-          underlined
           fullWidth
-          labelPlaceholder="Password"
+          label="Password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Spacer y={1.5} />
-        <Button shadow color="primary" auto onClick={handleLogin}>
+        <Button auto color="primary" onClick={handleLogin}>
           Login
         </Button>
       </Card>
