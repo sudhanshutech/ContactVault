@@ -1,6 +1,4 @@
 import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
 
 import { siteConfig } from "@/config/site";
@@ -14,9 +12,7 @@ export default function Home() {
         <span className={title()}>Add&nbsp;</span>
         <span className={title({ color: "violet" })}>contacts,&nbsp;</span>
         <br />
-        <span className={title()}>
-          store and update them with ease.
-        </span>
+        <span className={title()}>store and update them with ease.</span>
       </div>
 
       <div className="flex gap-3">
@@ -41,8 +37,7 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="mt-8">
-      </div>
+      <div className="mt-8" />
     </section>
   );
 }

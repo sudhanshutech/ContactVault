@@ -7,36 +7,61 @@ export const siteConfig = {
     {
       label: "Home",
       href: "/",
+      auth: false,
     },
     {
       label: "Contacts",
-      href: "/docs",
+      href: "/contacts",
+      auth: true,
     },
     {
       label: "All Contacts",
-      href: "/blog",
+      href: "/all-contacts",
+      auth: true,
     },
     {
       label: "About",
       href: "/about",
+      auth: false,
     },
   ],
   navMenuItems: [
     {
       label: "Home",
       href: "/",
+      auth: false,
     },
     {
       label: "Contacts",
-      href: "/docs",
+      href: "/contacts",
+      auth: true,
     },
     {
       label: "All Contacts",
-      href: "/blog",
+      href: "/all-contacts",
+      auth: true,
     },
     {
       label: "About",
       href: "/about",
+      auth: false,
+    },
+  ],
+  authItems: [
+    {
+      label: "Login",
+      href: "/login",
+      auth: false,
+    },
+    {
+      label: "Register",
+      href: "/register",
+      auth: false,
+    },
+    {
+      label: "Logout",
+      href: "/logout",
+      auth: true,
     },
   ],
   links: {

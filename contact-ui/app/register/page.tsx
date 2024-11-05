@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import React, { useState } from "react";
 import { Input, Button, Spacer, Card } from "@nextui-org/react";
 import axios from "axios";
@@ -31,22 +33,27 @@ const RegisterPage = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-      }}
+      }} 
     >
       <Card style={{ maxWidth: "400px", padding: "20px" }}>
-        <h1 style={{textAlign: 'center'}}>Register</h1>
-        <Input
-          label="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <h1 style={{ textAlign: "center", marginBottom: "5px" }}>Register</h1>
+        <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+          <Input
+            label="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         <Spacer y={1} />
-        <Input
-          label="Email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+          <Input
+            type="email"
+            label="Email"
+            placeholder="Enter your email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+
         <Spacer y={1} />
         <Input
           label="Password"

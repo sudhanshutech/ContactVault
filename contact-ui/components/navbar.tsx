@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Navbar as NextUINavbar,
@@ -10,17 +10,16 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
-import { Input } from "@nextui-org/input";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { GithubIcon, SearchIcon, Logo } from "@/components/icons";
-import { useEffect, useState } from "react";
+import { GithubIcon, Logo } from "@/components/icons";
+
 
 export const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,6 +28,7 @@ export const Navbar = () => {
 
   const handleLogout = () => {
     const token = localStorage.getItem("token");
+
     if (token) {
       localStorage.removeItem("token");
       setIsLoggedIn(false);
@@ -37,6 +37,7 @@ export const Navbar = () => {
 
   const checkAuthStatus = () => {
     const token = localStorage.getItem("token");
+
     if (token) {
       setIsLoggedIn(true);
       setShowLogin(false);
@@ -62,20 +63,43 @@ export const Navbar = () => {
           </NextLink>
         </NavbarBrand>
         <ul className="hidden sm:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
+          {isLoggedIn ? (
+            <>
+              {siteConfig.navItems.map((item) => (
+                <NavbarItem key={item.href}>
+                  <NextLink
+                    className={clsx(
+                      linkStyles({ color: "foreground" }),
+                      "data-[active=true]:text-primary data-[active=true]:font-medium"
+                    )}
+                    color="foreground"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </NextLink>
+                </NavbarItem>
+              ))}
+            </>
+          ) : (
+            <>
+              {siteConfig.navItems
+                .filter((item) => item.auth === false)
+                .map((item) => (
+                  <NavbarItem key={item.href}>
+                    <NextLink
+                      className={clsx(
+                        linkStyles({ color: "foreground" }),
+                        "data-[active=true]:text-primary data-[active=true]:font-medium"
+                      )}
+                      color="foreground"
+                      href={item.href}
+                    >
+                      {item.label}
+                    </NextLink>
+                  </NavbarItem>
+                ))}
+            </>
+          )}
         </ul>
       </NavbarContent>
 
@@ -109,7 +133,7 @@ export const Navbar = () => {
           ))}
         </div>
       </NavbarMenu>
-      <NavbarContent justify="end"></NavbarContent>
+      <NavbarContent justify="end" />
       <NavbarContent
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"

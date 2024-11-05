@@ -30,10 +30,10 @@ export default function BlogPage() {
 
   return (
     <div>
-      <h1 className={title()}>Blog</h1>
+      <h1 className={title()}>All Contacts</h1>
       <div className="mt-4">
         <p>
-          This is the blog page. Here you can see all contacts.
+          This is the contacts page. Here you can view all your saved contacts.
         </p>
         <Table>
           <TableHeader>
